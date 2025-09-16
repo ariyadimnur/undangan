@@ -1,0 +1,401 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;
+    color:#333;
+    font-size: clamp(14px, 2vw, 18px); /* responsif antara 14px - 18px */
+text-align:center;min-height:100vh;overflow-x:hidden;perspective:1px;}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:url("img/taman.jpg") no-repeat center center;background-size:cover;transform:translateZ(-1px) scale(2);z-index:-1;}
+
+/* Splash */
+#splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("#") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+}
+
+#splash .overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.splash-content .judul {
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.splash-content .subjudul {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.splash-content .tanggal {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+#openBtn {
+  padding: 0.9rem 1.5rem;
+  background: #8d3c7c;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+  animation: pulse 2s infinite;
+}
+
+#openBtn:hover {
+  background: #6c295e;
+  transform: scale(1.05);
+}
+.hidden{display:none;}
+
+/* Countdown */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+#countdown div {
+  background: rgba(255,255,255,0.1);
+  padding: 0.8rem;
+  border-radius: 12px;
+  min-width: 65px;
+}
+
+#countdown span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+#countdown small {
+  font-size: 0.7rem;
+  color: #eee;
+}
+
+
+/* Animasi */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(141,60,124,0.7);}
+  70% { box-shadow: 0 0 0 20px rgba(141,60,124,0);}
+  100% { box-shadow: 0 0 0 0 rgba(141,60,124,0);}
+}
+
+/* Sections */
+section{padding:4rem 2rem;background:rgba(255,255,255,0.85);margin:2rem auto;border-radius:15px;max-width:700px;box-shadow:0 5px 15px rgba(0,0,0,0.1);position:relative;z-index:1;}
+section h1, section h2{color:#8d3c7c;margin-bottom:1rem;}
+section p{font-size:1.1rem;line-height:1.6;margin-bottom:1rem;}
+.btn-group{margin-top:1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn{text-decoration:none;padding:0.8rem 1.2rem;background:#8d3c7c;color:#fff;border-radius:8px;transition:0.3s;}
+.btn:hover{background:#6c295e;transform:scale(1.05);}
+.penutup .salam{font-style:italic;color:#444;margin-top:1rem;}
+.penutup .nama-akhir{margin-top:2rem;font-size:1.5rem;color:#8d3c7c;}
+
+/* Biodata Mempelai */
+.biodata{padding:2rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;}
+.mempelai{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;width:100%;}
+.card{background:rgba(255,255,255,0.9);padding:1.5rem;border-radius:12px;width:250px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition: transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+.card.left{order:1;}
+.card.right{order:2;}
+@media(max-width:700px){.mempelai{flex-direction:column;gap:1.5rem;}.card.left,.card.right{order:unset;width:90%;}}
+
+/* Music */
+#music-control{position:fixed;bottom:20px;right:20px;z-index:1000;}
+#musicBtn{background:#8d3c7c;color:#fff;border:none;border-radius:50%;width:60px;height:60px;font-size:1.8rem;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+#musicBtn:hover{transform:scale(1.1) rotate(-5deg);}
+
+/* Mobile-friendly fonts */
+@media(max-width:500px){
+  body{font-size:16px;}
+  section{padding:2rem 1rem;}
+  .hero h1{font-size:1.8rem;}
+  .acara h2, .biodata h2, .penutup h2{font-size:1.6rem;}
+  .acara p, .penutup p, .biodata p{font-size:1rem;}
+}
+
+/* Nama Mempelai */
+.hero h1, .card h3, .penutup .nama-akhir {
+  font-family: 'Sacramento', cursive;
+}
+
+/* RSVP Section */
+#rsvp {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 3rem auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+#rsvp h2 {
+  color: #8d3c7c;
+  margin-bottom: 1.5rem;
+}
+
+#rsvpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus {
+  border-color: #8d3c7c;
+  box-shadow: 0 0 5px rgba(141,60,124,0.3);
+  outline: none;
+}
+
+#rsvpForm button {
+  padding: 0.9rem 1.2rem;
+  background: #8d3c7c;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#rsvpForm button:hover {
+  background: #6c295e;
+  transform: translateY(-2px);
+}
+
+#rsvpForm .success {
+  margin-top: 1rem;
+  color: green;
+  font-weight: 600;
+}
+
+/* RSVP Guest List */
+#rsvpList {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+#rsvpList h3 {
+  margin-bottom: 1rem;
+  color: #8d3c7c;
+  text-align: center;
+}
+
+#guestList {
+  list-style: none;
+  padding: 0;
+}
+
+#guestList li {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+/* Galeri Foto Mempelai */
+.gallery {
+  padding: 4rem 2rem;
+  background: rgba(255,255,255,0.85);
+  margin: 2rem auto;
+  border-radius: 15px;
+  max-width: 900px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.gallery h2 {
+  color: #8d3c7c;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Popup Cerita */
+#ceritaPopup {
+  position: fixed;
+  top:0; left:0;
+  width:100vw; height:100vh;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 2rem;
+}
+
+#ceritaPopup.hidden {
+  display: none;
+}
+
+#ceritaPopup .popup-content {
+  background: #fff;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  text-align: left;
+}
+
+#closeCerita {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #8d3c7c;
+  cursor: pointer;
+}
+
+#ceritaPopup h2 {
+  color: #8d3c7c;
+  margin-bottom: 1rem;
+}
+
+#ceritaPopup p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Judul h1 & h2 selain nama mempelai */
+section h1, section h2, .hero h1, .acara h2, .biodata h2, .penutup h2 {
+  font-family: 'Lobster', cursive;
+}
+
+/* Nama Mempelai */
+.card h3, .penutup .nama-akhir {
+  font-family: 'Sacramento', cursive;
+}
+
+/* Galeri Foto */
+.galeri {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 3rem auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.galeri h2 {
+  font-family: 'Lobster', cursive;
+  color: #8d3c7c;
+  margin-bottom: 2rem;
+}
+
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.galeri-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galeri-grid img:hover {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Efek Bunga Berjatuhan */
+#falling-flowers {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10000; /* lebih tinggi dari splash (9999) */
+}
+
+.flower {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  opacity: 0.9;
+  font-size: 20px;
+  animation: fall linear forwards;
+  animation-duration: 5s; /* fallback kalau JS gagal */
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+

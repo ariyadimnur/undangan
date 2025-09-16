@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Ariyadi & Fitri</title>
+<link rel="stylesheet" href="style.css">
+<!-- AOS CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash">
+  <div class="overlay"></div>
+  <div class="splash-content">
+    <h1 class="judul">Ariyadi & Fitri</h1>
+    <p class="subjudul">Undangan Pernikahan</p>
+    <p class="tanggal">31 Januari 2026</p>
+    <div id="countdown">
+      <div><span id="days">0</span><small>Hari</small></div>
+      <div><span id="hours">0</span><small>Jam</small></div>
+      <div><span id="minutes">0</span><small>Menit</small></div>
+      <div><span id="seconds">0</span><small>Detik</small></div>
+    </div>
+    <button id="openBtn">💌 Buka Undangan</button>
+  </div>
+</div>
+
+<!-- Konten Undangan -->
+<main id="content" class="hidden">
+  <section class="hero" data-aos="fade-up">
+    <h1>Ariyadi & Fitri</h1>
+    <p>Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.</p>
+  </section>
+
+  <section class="acara" data-aos="fade-up" data-aos-delay="100">
+    <h2>Detail Acara</h2>
+    <p>📅 <strong>Tanggal:</strong> Sabtu, 31 Januari 2026</p>
+    <p>⏰ <strong>Jam:</strong> 08.00 s/d 14.00 WIB</p>
+    <p>📍 <strong>Tempat:</strong> Gedung Vidiya Candra</p>
+    <div class="btn-group">
+      <a href="https://maps.google.com/?q=Gedung+Vidiya+Candra" target="_blank" class="btn">📍 Lihat Lokasi</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Ariyadi+%26+Fitri&dates=20260131T010000/20260131T070000&details=Undangan+pernikahan+Ariyadi+%26+Fitri&location=Gedung+Vidiya+Candra" target="_blank" class="btn">🗓️ Simpan ke Kalender</a>
+    </div>
+  </section>
+
+  <section class="biodata" data-aos="fade-up" data-aos-delay="200">
+    <h2>Biodata Mempelai</h2>
+    <div class="mempelai">
+      <div class="card left" data-aos="fade-right" data-aos-delay="300">
+        <h3>Ariyadi</h3>
+        <p>Putra dari Bapak Abudarin & Ibu Umi</p>
+      </div>
+      <div class="card right" data-aos="fade-left" data-aos-delay="300">
+        <h3>Fitri</h3>
+        <p>Putri dari Bapak Carwita & Ibu Neneng</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cerita" data-aos="fade-up" data-aos-delay="400">
+    <h2>Cerita Pertama Kali Bertemu</h2>
+    <p>
+      Kami pertama kali bertemu di [tempat/kondisi bertemu], dan sejak saat itu 
+      perjalanan indah kami dimulai. Dari tawa, canda, hingga dukungan satu sama lain, 
+      semuanya terasa begitu berarti. 💖
+    </p>
+  </section>
+
+  <section class="gallery" data-aos="fade-up" data-aos-delay="200">
+    <h2>Galeri Foto Mempelai</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="img/foto1.jpg" alt="Ariyadi"></div>
+      <div class="gallery-item"><img src="img/foto2.jpg" alt="Fitri"></div>
+      <div class="gallery-item"><img src="img/foto3.jpg" alt="Bersama"></div>
+      <div class="gallery-item"><img src="img/foto4.jpg" alt="Prewed"></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" data-aos="fade-up" data-aos-delay="250">
+    <h2>Konfirmasi Kehadiran</h2>
+    <form id="rsvpForm">
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+      <select id="kehadiran" required>
+        <option value="">-- Pilih Kehadiran --</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <textarea id="pesan" placeholder="Ucapan atau doa..."></textarea>
+      <button type="submit">Kirim</button>
+      <p id="successMsg" class="success" style="display:none;">✅ Terima kasih, konfirmasi berhasil dikirim!</p>
+    </form>
+    <div id="rsvpList">
+      <h3>Daftar Kehadiran</h3>
+      <ul id="guestList"></ul>
+    </div>
+  </section>
+
+  <section class="penutup" data-aos="fade-up" data-aos-delay="300">
+    <h2>Ucapan Terima Kasih</h2>
+    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu pada acara pernikahan kami.</p>
+    <p class="salam">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+    <h3 class="nama-akhir">Ariyadi & Fitri</h3>
+  </section>
+</main>
+
+<!-- Musik -->
+<div id="music-control"><button id="musicBtn">🔊</button></div>
+<audio id="bgMusic" preload="auto" loop>
+  <source src="music/tulus.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Firebase v8 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="script.js"></script>
+
+<!-- Bunga berjatuhan -->
+<div id="falling-flowers"></div>
+
+</body>
+<footer>
+  <p><strong>© 2025 Undangan Digital by AYMN</strong></p>
+</footer>
+</html>
